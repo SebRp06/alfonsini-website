@@ -1,0 +1,69 @@
+.galeria { display: grid; gap: 0.75rem; min-width: 0; }
+.principal {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radio-l);
+  overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 50% 55%, color-mix(in srgb, var(--tono) 30%, transparent), transparent 70%),
+    radial-gradient(90% 60% at 50% 100%, color-mix(in srgb, var(--violeta) 18%, transparent), transparent 70%),
+    var(--superficie);
+  border: 1px solid var(--borde);
+}
+.foto { width: 100%; height: 100%; object-fit: contain; animation: entrar 420ms var(--curva); }
+@keyframes entrar { from { opacity: 0.25; transform: scale(0.97); } }
+
+.punto {
+  position: absolute;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: var(--toque);
+  height: var(--toque);
+  border: 2px solid #0b0b10;
+  border-radius: 50%;
+  background: #f2a93b;
+  color: #0b0b10;
+  font-weight: 900;
+  font-size: var(--t-sm);
+  box-shadow: 0 0.4rem 1rem -0.2rem rgb(0 0 0 / 0.6);
+  transition: transform var(--rapido) var(--curva-rebote), background-color var(--rapido);
+}
+.punto::before {
+  content: '';
+  position: absolute;
+  inset: -0.35rem;
+  border-radius: 50%;
+  border: 2px solid #f2a93b;
+  opacity: 0;
+  animation: latido 2.4s var(--curva) infinite;
+  animation-delay: calc(var(--i) * 400ms);
+}
+.punto:hover { transform: scale(1.1); }
+.punto[aria-pressed='true'] { background: #a993ff; }
+@keyframes latido { 0% { opacity: 0.9; transform: scale(0.8); } 100% { opacity: 0; transform: scale(1.6); } }
+
+.panel {
+  min-height: 4.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radio-m);
+  background: var(--superficie-2);
+  border-left: 4px solid var(--acento);
+}
+.panelTitulo { margin: 0; font-weight: 800; }
+.panelTexto { margin: 0; color: var(--texto-2); font-size: var(--t-sm); }
+
+.miniaturas { position: absolute; right: 0.6rem; top: 0.6rem; display: flex; gap: 0.4rem; }
+.pista { position: absolute; top: 0.6rem; left: 0.75rem; margin: 0; padding: 0.25rem 0.7rem; border-radius: 999px; background: rgb(11 11 16 / 0.72); color: #f4f4f6; font-size: var(--t-xs); font-weight: 700; }
+.panelVacio { min-height: 0; padding: 0; border: 0; }
+.miniatura {
+  width: 3.6rem;
+  padding: 0.15rem;
+  border: 2px solid var(--borde);
+  border-radius: var(--radio-s);
+  background: var(--superficie);
+  min-height: var(--toque);
+}
+@media (min-width: 60rem) { .principal { aspect-ratio: 4 / 3; } .miniatura { width: 5rem; } }
+.miniatura[aria-pressed='true'] { border-color: var(--acento); }
+.miniatura img { width: 100%; height: auto; }

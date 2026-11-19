@@ -1,0 +1,333 @@
+/* ==========================================================================
+   ALFONSINI · Sistema visual "Noir & Ámbar"
+   Tokens en un solo lugar: cambiar la paleta del cliente = editar este bloque.
+   Unidades en rem: respetan el zoom del navegador y el control "Tamaño de letra".
+   ========================================================================== */
+
+:root {
+  --escala-texto: 1;
+
+  /* Marca */
+  --noir: #0b0b10;
+  --noir-2: #14141c;
+  --noir-3: #1d1d28;
+  --ambar: #f2a93b;
+  --ambar-claro: #ffd08a;
+  --violeta: #7c5cff;
+  --violeta-claro: #a993ff;
+  --claro: #f4f4f6;
+
+  /* Tipografía (Flexing entra primero cuando llegue la licencia web; ver docs/PENDIENTES.md) */
+  --fuente-marca: 'Flexing', var(--f-unbounded), 'Arial Black', system-ui, sans-serif;
+  --fuente-texto: var(--f-manrope), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-base: 1rem;
+  --t-lg: 1.125rem;
+  --t-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --t-2xl: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
+  --t-3xl: clamp(2rem, 1.5rem + 2.4vw, 3.25rem);
+
+  --radio-s: 0.5rem;
+  --radio-m: 0.875rem;
+  --radio-l: 1.5rem;
+  --toque: 2.75rem; /* 44 px: objetivo táctil mínimo WCAG 2.5.5 */
+  --ancho: 76rem;
+  --margen: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --cabecera: 4rem;
+
+  --curva: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --curva-rebote: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --rapido: 160ms;
+  --medio: 320ms;
+}
+
+/* Tema oscuro (por defecto de marca) */
+:root,
+[data-tema='oscuro'] {
+  --fondo: var(--noir);
+  --superficie: var(--noir-2);
+  --superficie-2: var(--noir-3);
+  --borde: #2e2e3d;
+  --texto: #f4f4f6;
+  --texto-2: #b9b9c8;
+  --acento: var(--ambar);
+  --acento-texto: var(--ambar);
+  --sobre-acento: #0b0b10;
+  --secundario: var(--violeta-claro);
+  --error: #ff9c92;
+  --exito: #7fe3ab;
+  --foco: #ffd08a;
+  --sombra: 0 1.25rem 2.5rem -1rem rgb(0 0 0 / 0.65);
+  color-scheme: dark;
+}
+
+[data-tema='claro'] {
+  --fondo: #f4f4f6;
+  --superficie: #ffffff;
+  --superficie-2: #ebebf1;
+  --borde: #d5d5df;
+  --texto: #14141a;
+  --texto-2: #474756;
+  --acento: var(--ambar);
+  --acento-texto: #8a5300;
+  --sobre-acento: #14141a;
+  --secundario: #5236d6;
+  --error: #b3261e;
+  --exito: #1d7a45;
+  --foco: #5236d6;
+  --sombra: 0 1.25rem 2.5rem -1.25rem rgb(20 20 40 / 0.28);
+  color-scheme: light;
+}
+
+/* -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100% * var(--escala-texto));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--cabecera) + 1rem);
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--medio) var(--curva), color var(--medio) var(--curva);
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1, h2 {
+  font-family: var(--fuente-marca);
+  letter-spacing: -0.01em;
+}
+
+h2 { font-size: var(--t-2xl); }
+h3 { font-size: var(--t-xl); }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a {
+  color: var(--acento-texto);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button { cursor: pointer; }
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+::selection { background: var(--acento); color: var(--sobre-acento); }
+
+/* Utilidades -------------------------------------------------------------- */
+.contenedor {
+  width: min(100% - 2 * var(--margen), var(--ancho));
+  margin-inline: auto;
+}
+
+.visualmente-oculto {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar-contenido {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font-weight: 700;
+  border-radius: var(--radio-s);
+  text-decoration: none;
+}
+.saltar-contenido:focus { top: 0.75rem; }
+
+.seccion {
+  padding-block: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.antetitulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--acento-texto);
+}
+.antetitulo::before {
+  content: '';
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+}
+
+/* Botones ----------------------------------------------------------------- */
+.boton {
+  --b-fondo: var(--acento);
+  --b-texto: var(--sobre-acento);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: var(--toque);
+  min-width: var(--toque);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--b-fondo);
+  color: var(--b-texto);
+  font-weight: 800;
+  font-size: var(--t-sm);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform var(--rapido) var(--curva), background-color var(--rapido), box-shadow var(--medio) var(--curva);
+  -webkit-tap-highlight-color: transparent;
+}
+.boton:hover { box-shadow: 0 0.75rem 1.75rem -0.75rem color-mix(in srgb, var(--acento) 70%, transparent); }
+.boton:active { transform: scale(0.97); }
+
+.boton--fantasma {
+  --b-fondo: transparent;
+  --b-texto: var(--texto);
+  border-color: var(--borde);
+}
+.boton--fantasma:hover { border-color: var(--acento); box-shadow: none; }
+
+.boton--bloque { width: 100%; }
+.boton--grande { min-height: 3.5rem; font-size: var(--t-base); }
+
+.boton[aria-busy='true'] { pointer-events: none; opacity: 0.85; }
+
+.icono-boton {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--toque);
+  min-height: var(--toque);
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto);
+  text-decoration: none;
+  transition: background-color var(--rapido);
+}
+.icono-boton:hover { background: var(--superficie-2); }
+
+/* Formularios ------------------------------------------------------------- */
+.campo {
+  display: grid;
+  gap: 0.35rem;
+}
+.campo label, .campo .etiqueta {
+  font-weight: 700;
+  font-size: var(--t-sm);
+}
+.campo .ayuda {
+  font-size: var(--t-xs);
+  color: var(--texto-2);
+}
+.entrada {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--borde);
+  border-radius: var(--radio-s);
+  background: var(--superficie);
+  color: var(--texto);
+  font-size: max(1rem, 16px); /* 16px evita el zoom automático de iOS */
+  transition: border-color var(--rapido), box-shadow var(--rapido);
+}
+.entrada:hover { border-color: color-mix(in srgb, var(--texto) 35%, var(--borde)); }
+.entrada:focus-visible { outline: none; border-color: var(--acento); box-shadow: 0 0 0 3px color-mix(in srgb, var(--acento) 35%, transparent); }
+.entrada[aria-invalid='true'] { border-color: var(--error); }
+.mensaje-error {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+  color: var(--error);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+select.entrada { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 1.2rem) 52%, calc(100% - 0.85rem) 52%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.5rem; }
+
+/* Movimiento -------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (forced-colors: active) {
+  .boton { border-color: ButtonText; }
+}
+
+/* Migas de pan */
+.migas ol { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0 0 0.5rem; padding: 0; list-style: none; font-size: var(--t-sm); color: var(--texto-2); }
+.migas li { display: inline-flex; align-items: center; }
+.migas li + li::before { content: '/'; margin-right: 0.35rem; opacity: 0.6; }
+.migas a { display: inline-flex; align-items: center; min-height: var(--toque); color: var(--texto-2); }
+.migas a:hover { color: var(--acento-texto); }
+.migas [aria-current='page'] { color: var(--texto); font-weight: 700; }
+
+/* Tablas */
+.tabla-desplazable { max-width: 100%; overflow-x: auto; border: 1px solid var(--borde); border-radius: var(--radio-m); }
+.tabla { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tabla th, .tabla td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--borde); }
+.tabla thead th { background: var(--superficie-2); font-size: var(--t-sm); }
+.tabla tbody tr:hover { background: var(--superficie); }
+.texto-legal { max-width: 46rem; }
+.texto-legal h2 { font-size: var(--t-xl); margin-top: 2rem; }
+.texto-legal p, .texto-legal li { color: var(--texto-2); }

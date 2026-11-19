@@ -1,0 +1,68 @@
+{
+  "plataforma": {
+    "urlBase": "http://localhost:3000"
+  },
+  "selectores": {
+    "accionPrincipal": [
+      "a.boton[href=\"/tienda\"]"
+    ],
+    "confirmacionExito": [
+      "h1:has-text(\"Toda la colección\")"
+    ],
+    "comercio": {
+      "tarjetaProducto": [
+        "[data-caja] a[href^=\"/producto/\"]"
+      ],
+      "precioProducto": [
+        "[data-precio]"
+      ],
+      "agregarCarrito": [
+        "[data-accion=\"agregar-carrito\"]"
+      ],
+      "confirmacionAgregado": [
+        "[data-confirmacion-agregado]"
+      ],
+      "irAlCarrito": [
+        "[data-accion=\"finalizar-compra\"]"
+      ],
+      "cantidadCarrito": [
+        "input[type=\"number\"][id^=\"cant-\"]"
+      ],
+      "totalCarrito": [
+        "aside [data-subtotal]"
+      ],
+      "iniciarCompra": [
+        "form[data-formulario=\"checkout\"] button[type=\"submit\"]"
+      ],
+      "formularioCheckout": [
+        "form[data-formulario=\"checkout\"]"
+      ],
+      "totalCheckout": [
+        "aside [data-subtotal]"
+      ],
+      "quitarDelCarrito": [
+        "[data-accion=\"quitar-carrito\"]"
+      ],
+      "opcionNoDisponible": [
+        "label:has(input[data-agotada])"
+      ],
+      "opcionVariante": [
+        "label:has(input[name=\"talla\"]):not(:has(input[data-agotada]))"
+      ],
+      "campoBusqueda": [
+        "#buscar"
+      ],
+      "resultadoBusqueda": [
+        "[data-caja]"
+      ]
+    }
+  },
+  "comercio": {
+    "categoria": "Categoría 1",
+    "terminoBusqueda": "aurora"
+  },
+  "dictamen": {
+    "cliente": "Alfonsini (maqueta)",
+    "alcance": "Maqueta visual: inicio, vitrina, producto, carrito y checkout GWT en móvil y escritorio."
+  }
+}

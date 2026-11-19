@@ -1,0 +1,20 @@
+---
+description: Reglas AccedIT para componentes React/Next del sitio Alfonsini
+globs: ["src/**/*.tsx"]
+alwaysApply: false
+---
+# Componentes `.tsx` (HCQE™ · UFF™ · HSS™ · GWT™)
+
+- Servidor por defecto. `'use client'` solo si hay estado, eventos o APIs del navegador.
+- TypeScript estricto: sin `any`, sin `!`; props `readonly`.
+- HTML semántico primero: `button` para acciones, `a` para navegar, `fieldset/legend` en grupos, `details/summary` para acordeones, `dialog` para modales.
+- Cada control: nombre accesible, objetivo táctil ≥ 44 px (`var(--toque)`), foco visible (no quitar `outline` sin reemplazo en el mismo elemento).
+- Unidades en `rem`; nada de tamaños fijos en px para texto. Probar con `--escala-texto` 1.25 y 1.5: cero desborde horizontal.
+- Formularios: `autocomplete` estándar (`given-name`, `email`, `tel-national`, `address-line1`…), `inputMode` correcto, errores con `aria-invalid` + `aria-describedby` y resumen enfocable.
+- Agotado nunca es un botón apagado: ofrecer lista de espera o alternativa.
+- Animaciones solo con `transform`/`opacity`; respetar `prefers-reduced-motion` y `[data-rendimiento='ligero']`.
+- Sin librerías de UI ni de animación sin ADR (HSS™).
+- Precios siempre con `cop()` de `src/domain/dinero.ts` (formato único en todo el recorrido).
+- Datos solo a través de `src/lib/repositorios` (puertos). Nada de datos de clientes quemados en componentes.
+- Ganchos de prueba estables: `data-accion`, `data-caja`, `data-total`, `data-subtotal`, `data-formulario`.
+- Definición de terminado: `npm run check` en verde (lint, tipos, build, Playwright + axe).

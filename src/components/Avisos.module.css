@@ -1,0 +1,56 @@
+.region {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: grid;
+  gap: 0.6rem;
+  width: min(100% - 2rem, 26rem);
+  pointer-events: none;
+}
+@media (min-width: 48rem) {
+  .region { left: auto; right: 1.5rem; transform: none; }
+}
+
+.aviso {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.9rem 0.75rem 0.9rem 1rem;
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--acento);
+  border-radius: var(--radio-m);
+  background: var(--superficie);
+  color: var(--texto);
+  box-shadow: var(--sombra);
+  animation: entrar var(--medio) var(--curva-rebote) both;
+}
+.exito { border-left-color: var(--exito); }
+.error { border-left-color: var(--error); }
+
+.icono { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--superficie-2); color: var(--acento-texto); }
+.exito .icono { color: var(--exito); }
+.error .icono { color: var(--error); }
+
+.cuerpo { min-width: 0; }
+.titulo { margin: 0; font-weight: 800; line-height: 1.35; }
+.texto { margin: 0.15rem 0 0; font-size: var(--t-sm); color: var(--texto-2); }
+.acciones { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+.accion {
+  display: inline-flex; align-items: center; min-height: var(--toque); padding: 0.4rem 1rem;
+  border: 2px solid var(--acento); border-radius: 999px; background: transparent;
+  color: var(--texto); font-weight: 800; font-size: var(--t-sm); text-decoration: none;
+}
+.accion:first-child { background: var(--acento); color: var(--sobre-acento); }
+.cerrar {
+  display: grid; place-items: center; min-width: var(--toque); min-height: var(--toque);
+  margin: -0.5rem -0.25rem 0 0; border: 0; border-radius: 50%; background: transparent; color: var(--texto-2);
+}
+.cerrar:hover { background: var(--superficie-2); color: var(--texto); }
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(1rem) scale(0.96); }
+}

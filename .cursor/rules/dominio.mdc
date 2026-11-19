@@ -1,0 +1,8 @@
+---
+description: Dominio agnóstico de la tienda
+globs: ["src/domain/**/*.ts", "src/lib/repositorios/**/*.ts"]
+alwaysApply: false
+---
+- `src/domain` no importa React ni Next (ESLint lo bloquea). Funciones puras y tipadas.
+- Nuevos proveedores de datos: implementar `Repositorios` en un archivo nuevo y seleccionarlo en `src/lib/repositorios/index.ts`.
+- Operaciones de escritura con clave de idempotencia.

@@ -1,0 +1,73 @@
+.gracias { display: grid; justify-items: center; text-align: center; gap: 0.75rem; max-width: 44rem; margin-inline: auto; padding-block: 1rem 4rem; }
+
+.escena { position: relative; width: 15rem; height: 13rem; margin-bottom: 0.5rem; }
+.brillo {
+  position: absolute; inset: -30% -40%;
+  background: radial-gradient(closest-side, rgb(242 169 59 / 0.45), transparent 70%), radial-gradient(closest-side, rgb(124 92 255 / 0.35), transparent 70%) 40% 60% / 70% 70% no-repeat;
+  animation: respirar 4s ease-in-out 1.6s infinite alternate, aparecer 1s var(--curva) both;
+}
+.caja { position: absolute; left: 50%; bottom: 0.5rem; width: 12rem; height: 8rem; translate: -50% 0; animation: llegar 600ms var(--curva-rebote) both; }
+.frente {
+  position: absolute; inset: 1.5rem 0 0; display: grid; place-items: center; border-radius: 0.4rem;
+  background: linear-gradient(135deg, #1d1d28, #0d0d13); box-shadow: 0 1.5rem 2.5rem -1rem rgb(0 0 0 / 0.7), inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  color: #f2a93b; font-family: var(--fuente-marca); font-weight: 800; letter-spacing: 0.2em; font-size: 0.95rem;
+}
+.tapa {
+  position: absolute; z-index: 2; inset: 0 -0.5rem auto; height: 2.4rem; border-radius: 0.4rem;
+  background: linear-gradient(#2e2e3c, #17171f); box-shadow: 0 0.6rem 0.8rem -0.4rem rgb(0 0 0 / 0.7);
+  transform-origin: 50% 100%;
+  animation: cerrar 700ms var(--curva-rebote) 300ms both;
+}
+.lazoV, .lazoH { position: absolute; z-index: 3; background: linear-gradient(90deg, #ffd08a, #f2a93b); }
+.lazoV { left: 50%; top: 0; bottom: 0; width: 0.9rem; translate: -50% 0; transform-origin: top; animation: lazo-v 500ms var(--curva) 950ms both; }
+.lazoH { left: -0.5rem; right: -0.5rem; top: 0.8rem; height: 0.9rem; transform-origin: left; animation: lazo-h 500ms var(--curva) 1.1s both; }
+.check { position: absolute; z-index: 4; right: -1.6rem; top: -1.6rem; width: 3.6rem; height: 3.6rem; animation: sello 520ms var(--curva-rebote) 1.45s both; }
+.check circle { fill: #7fe3ab; }
+.check path { fill: none; stroke: #0b0b10; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: trazo 420ms var(--curva) 1.8s forwards; }
+
+.confeti {
+  position: absolute; left: 50%; top: 45%; width: 0.6rem; height: 0.9rem; border-radius: 0.15rem;
+  background: hsl(calc(30 + var(--i) * 25) 90% 62%);
+  opacity: 0;
+  --ang: calc(var(--i) * 30deg);
+  animation: estallar 1.3s var(--curva) 1.5s both;
+}
+.confeti:nth-child(3n) { background: #7c5cff; }
+.confeti:nth-child(3n + 1) { background: #f2a93b; }
+
+.antetitulo { margin: 0; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; font-size: var(--t-xs); color: var(--exito); animation: subir 600ms var(--curva) 1.6s both; }
+.titulo { margin: 0; font-size: var(--t-3xl); animation: subir 600ms var(--curva) 1.75s both; }
+.titulo:focus { outline: none; }
+.numero { margin: 0; padding: 0.4rem 1rem; border: 1px dashed var(--borde); border-radius: 999px; font-family: ui-monospace, Menlo, monospace; animation: subir 600ms var(--curva) 1.85s both; }
+.texto { max-width: 46ch; color: var(--texto-2); animation: subir 600ms var(--curva) 1.95s both; }
+
+.linea { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; margin: 1rem 0; padding: 0; list-style: none; font-size: var(--t-xs); font-weight: 700; color: var(--texto-2); }
+.linea li { position: relative; display: grid; justify-items: center; gap: 0.5rem; padding-top: 0.25rem; animation: subir 500ms var(--curva) both; animation-delay: calc(2.05s + var(--i) * 100ms); }
+.linea li span[aria-hidden] { position: relative; z-index: 1; width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 3px solid var(--borde); background: var(--fondo); }
+.linea li:not(:last-child)::after { content: ''; position: absolute; top: 0.75rem; left: 50%; width: 100%; height: 3px; background: var(--borde); }
+.hecho { color: var(--texto) !important; }
+.hecho span[aria-hidden] { border-color: var(--exito) !important; background: var(--exito) !important; }
+
+.resumen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; width: 100%; margin: 0; padding: 1rem; border-radius: var(--radio-m); background: var(--superficie); }
+.resumen dt { font-size: var(--t-xs); color: var(--texto-2); }
+.resumen dd { margin: 0; font-weight: 800; }
+.botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+
+@keyframes llegar { from { opacity: 0; transform: translateY(2rem) scale(0.8); } }
+@keyframes cerrar { from { transform: translateY(-3.5rem) rotate(-18deg); opacity: 0.6; } }
+@keyframes lazo-v { from { transform: scaleY(0); } }
+@keyframes lazo-h { from { transform: scaleX(0); } }
+@keyframes sello { from { opacity: 0; transform: scale(2) rotate(-30deg); } }
+@keyframes trazo { to { stroke-dashoffset: 0; } }
+@keyframes estallar {
+  0% { opacity: 1; transform: rotate(var(--ang)) translateY(0) rotate(0); }
+  100% { opacity: 0; transform: rotate(var(--ang)) translateY(-7.5rem) rotate(260deg); }
+}
+@keyframes subir { from { opacity: 0; transform: translateY(0.75rem); } }
+@keyframes aparecer { from { opacity: 0; } }
+@keyframes respirar { to { transform: scale(1.08); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .check path { stroke-dashoffset: 0; }
+  .confeti { display: none; }
+}

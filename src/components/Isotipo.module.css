@@ -1,0 +1,85 @@
+.isotipo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--texto);
+}
+
+.marca { width: 3.5rem; height: 3.5rem; overflow: visible; }
+.pequeno .marca { width: 1.5rem; height: 1.5rem; }
+.grande .marca { width: 5.5rem; height: 5.5rem; }
+.pequeno { flex-direction: row; gap: 0.5rem; }
+.pequeno .texto { font-size: var(--t-sm); }
+
+.marco {
+  fill: none;
+  stroke: color-mix(in srgb, var(--acento) 35%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 40 128;
+  transform-origin: 24px 24px;
+  animation: orbita 1.6s linear infinite;
+}
+
+.piernas,
+.suela {
+  fill: none;
+  stroke: url(#iso-grad);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.piernas {
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+  animation: trazar 1.6s var(--curva) infinite;
+}
+
+.suela {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+  animation: trazar-suela 1.6s var(--curva) infinite;
+}
+
+.texto {
+  font-weight: 700;
+  font-size: var(--t-sm);
+  letter-spacing: 0.04em;
+}
+
+.palabra {
+  display: flex;
+  gap: 0.15em;
+  font-family: var(--fuente-marca);
+  font-weight: 800;
+  font-size: var(--t-xl);
+  letter-spacing: 0.08em;
+}
+.palabra span {
+  display: inline-block;
+  animation: ola 1.6s var(--curva) infinite;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+@keyframes orbita { to { transform: rotate(360deg); } }
+@keyframes trazar {
+  0% { stroke-dashoffset: 64; }
+  45%, 75% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -64; }
+}
+@keyframes trazar-suela {
+  0%, 30% { stroke-dashoffset: 22; }
+  60%, 80% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -22; }
+}
+@keyframes ola {
+  0%, 60%, 100% { transform: translateY(0); color: var(--texto); }
+  30% { transform: translateY(-0.3em); color: var(--acento-texto); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .piernas, .suela { stroke-dashoffset: 0; animation: pulso 1.6s ease-in-out infinite !important; animation-duration: 1.6s !important; animation-iteration-count: infinite !important; }
+  .marco, .palabra span { animation: none !important; }
+}
+@keyframes pulso { 50% { opacity: 0.45; } }

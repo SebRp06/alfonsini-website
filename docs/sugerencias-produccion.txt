@@ -1,0 +1,112 @@
+ALFONSINI · SUGERENCIAS PARA PRODUCCIÓN (solo ideas: nada de esto está implementado)
+Preparado por AccedIT · 19 nov 2026
+Nota: los planes y precios de cada proveedor cambian; verificarlos el día de la decisión.
+El sitio ya está desacoplado: cualquier opción se conecta implementando src/lib/repositorios/puertos.ts.
+
+======================================================================
+1. HOSTING DEL SITIO (Next.js)
+======================================================================
+Gratis / bajo costo
+  - Vercel (plan Hobby): despliegue directo de Next.js, CDN global, ISR. El plan gratuito
+    es para uso no comercial: para una tienda real conviene el plan Pro.
+  - Cloudflare Pages + Workers (adaptador OpenNext): plan gratuito generoso, CDN en Bogotá.
+  - Netlify (plan gratuito): sencillo; Next.js soportado con su runtime.
+De pago
+  - Vercel Pro: lo más simple para el equipo; analítica de Web Vitals incluida.
+  - AWS Amplify / Fly.io / Railway / un VPS (DigitalOcean, Hetzner) con Docker: más control,
+    más mantenimiento.
+Recomendación AccedIT: Vercel Pro o Cloudflare (ambos con CDN y cabeceras de seguridad).
+
+======================================================================
+2. BASE DE DATOS (catálogo, pedidos, lista de espera)
+======================================================================
+Gratis para empezar
+  - Supabase (Postgres + almacenamiento de fotos + autenticación lista para el futuro módulo
+    de usuarios). Plan gratuito con límites y pausa por inactividad.
+  - Neon (Postgres serverless): plan gratuito, ramas de BD para pruebas.
+  - Turso (SQLite distribuido) o Cloudflare D1: muy baratos para catálogos pequeños.
+De pago
+  - Supabase Pro / Neon pago: copias de seguridad diarias, sin pausas.
+  - Postgres administrado (AWS RDS, Google Cloud SQL, DigitalOcean): más costo, más control.
+Recomendación AccedIT: Postgres (Supabase o Neon) + ORM tipado (Drizzle o Prisma).
+Tablas mínimas: productos, variantes(talla, sku, stock), imagenes, categorias, pedidos,
+lineas_pedido, reservas_stock, lista_espera, consentimientos (Ley 1581).
+
+======================================================================
+3. GESTIÓN DE STOCK / INVENTARIO
+======================================================================
+Opción A · Propio (gratis en licencias)
+  - Tabla de variantes por talla con stock y reserva temporal (15 min) al confirmar pedido;
+    liberación automática si no se paga (Bre-B) en el plazo.
+  - Panel administrativo sencillo (Next.js + autenticación del equipo) o Supabase Studio.
+Opción B · Integrar con lo que ya use Alfonsini
+  - Si facturan con Siigo, Alegra o World Office: sincronizar stock por API (de pago, según plan).
+  - Hoja de cálculo como fuente temporal (Google Sheets API): rápido, frágil a escala.
+Opción C · Plataforma de comercio "headless" (de pago)
+  - Shopify (Storefront API), Medusa (código abierto, autohospedado gratis) o Saleor:
+    traen inventario, pedidos y panel. Medusa es la opción abierta más alineada al core agnóstico.
+Recomendación AccedIT: A si el catálogo es < 300 referencias; Medusa si crecerá a mayoristas.
+
+======================================================================
+4. FOTOS Y MEDIOS
+======================================================================
+  - Supabase Storage o Cloudflare R2 (gratis hasta cierto volumen) + transformación de imágenes
+    (Cloudflare Images, Vercel Image Optimization o imgproxy) a AVIF/WebP.
+  - Cloudinary (plan gratuito con créditos): recortes, fondo y tamaños automáticos.
+
+======================================================================
+5. PAGOS (por confirmar con el cliente)
+======================================================================
+Hoy en la maqueta: pago contra entrega y transferencia Bre-B.
+  - Bre-B: llave del comercio + conciliación (manual desde el panel o automática si el banco
+    ofrece notificaciones/API).
+  - Contra entrega: lo gestiona la transportadora (recaudo); revisar comisión de recaudo.
+  - Si se suma pasarela: Wompi (Bancolombia), Bold, ePayco, Mercado Pago o PayU.
+    Costo por transacción (comisión porcentual + fijo + retenciones): validar con @FINANZAS.
+
+======================================================================
+6. ENVÍOS
+======================================================================
+  - Agregadores con API y cotización en línea: Mipaquete, Envíoclick, 99minutos (de pago por envío).
+  - Directo con transportadora: Servientrega, Interrapidísimo, Coordinadora, Envía.
+  - Recomendación: un agregador al inicio (cotiza varias transportadoras y genera guías).
+
+======================================================================
+7. USUARIOS (FUTURO · solo cuando se apruebe)
+======================================================================
+Gratis / bajo costo
+  - Supabase Auth (si la BD es Supabase): correo, enlace mágico, Google y Apple.
+  - Auth.js (NextAuth): código abierto, sin costo de licencia.
+  - Better Auth: código abierto, moderno, autohospedado.
+De pago
+  - Clerk, Auth0 o Stytch: paneles listos y MFA; costo por usuario activo mensual.
+Recomendación AccedIT: compra como invitado SIEMPRE disponible (menos fricción UFF™) y cuenta
+opcional con enlace mágico o Google/Apple (sin contraseñas que olvidar).
+
+======================================================================
+8. CORREOS Y MENSAJES
+======================================================================
+  - Resend, Brevo o Amazon SES (planes gratuitos o muy baratos) para confirmación de pedido
+    y avisos de lista de espera.
+  - WhatsApp Business Platform (de pago por conversación) vía Meta o un proveedor (Twilio, 360dialog).
+
+======================================================================
+9. FACTURA ELECTRÓNICA (DIAN)
+======================================================================
+  - Proveedor tecnológico habilitado: Siigo, Alegra, Facture, World Office (de pago, por plan).
+  - Integración por API al pasar el pedido a "pagado".
+
+======================================================================
+10. CALIDAD Y MONITOREO (AccedIT)
+======================================================================
+  - Quality Kit AccedIT en CI en cada despliegue (Playwright + axe + FrictionDetector + k6).
+  - Sentry (plan gratuito) para errores; Vercel/Cloudflare Web Analytics sin cookies.
+  - AccedIT Cloud Recorder™ (suscripción) para vigilancia continua del recorrido de compra.
+
+======================================================================
+11. SEGURIDAD Y DATOS PERSONALES (Ley 1581)
+======================================================================
+  - Variables y llaves solo en el gestor de secretos del hosting (nunca en el repositorio).
+  - Registro de autorizaciones de tratamiento de datos (tabla consentimientos).
+  - Copias de seguridad diarias de la BD y prueba de restauración mensual.
+  - Registro de la base de datos ante la SIC (RNBD) si aplica por tamaño de la empresa.

@@ -1,0 +1,157 @@
+/* ==== Estantería ==== */
+.estanteria {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 48rem) { .estanteria { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3.25rem 0; } }
+@media (min-width: 64rem) { .estanteria { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Con letra al 150 % en celular, una caja por fila para que nada se corte */
+@media (max-width: 22rem) { .estanteria { grid-template-columns: 1fr; } }
+
+.celda {
+  position: relative;
+  padding: 0 clamp(0.4rem, 1.6vw, 1.25rem) 1.5rem;
+}
+/* Repisa: las tablas de celdas vecinas se unen en una sola */
+.celda::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.9rem;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--texto) 22%, var(--superficie-2)), var(--superficie-2) 40%, color-mix(in srgb, var(--fondo) 60%, var(--superficie-2)));
+  box-shadow: 0 1rem 1.5rem -0.75rem rgb(0 0 0 / 0.55);
+}
+
+/* ==== Caja ==== */
+.caja {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  --abrir: 0;
+}
+.caja:hover, .caja:focus-within, .caja[data-abierta='si'] { --abrir: 1; }
+
+.escena {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  margin-top: 3.25rem;
+  perspective: 50rem;
+}
+
+.interior {
+  position: absolute;
+  inset: 22% 4% 0;
+  border-radius: 0.2rem;
+  background: linear-gradient(to bottom, #050507, color-mix(in srgb, var(--tono) 25%, #111118));
+}
+.zapato {
+  position: absolute;
+  left: 2%;
+  bottom: 6%;
+  width: 96%;
+  height: auto;
+  transform: translateY(calc(-44% - var(--abrir) * 30%)) rotate(calc(var(--abrir) * -6deg)) scale(calc(0.9 + var(--abrir) * 0.14));
+  transition: transform 620ms var(--curva-rebote);
+  transition-delay: calc(var(--abrir) * 120ms);
+  filter: drop-shadow(0 0.6rem 0.6rem rgb(0 0 0 / 0.45));
+  z-index: 2;
+}
+
+.frente {
+  position: absolute;
+  inset: 40% 0 0;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: space-between;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.2rem;
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06), transparent 40%),
+    linear-gradient(135deg, #16161f, #0d0d13);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06), 0 0.9rem 1rem -0.6rem rgb(0 0 0 / 0.65);
+  color: #f2a93b;
+}
+.marcaCaja { font-family: var(--fuente-marca); font-weight: 800; font-size: clamp(0.62rem, 0.5rem + 0.5vw, 0.85rem); letter-spacing: 0.14em; text-transform: uppercase; }
+.numero { font-family: var(--fuente-marca); font-size: 0.75rem; color: #b9b9c8; }
+.rango { grid-column: 1 / -1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b9b9c8; }
+.franja { grid-column: 1 / -1; height: 0.35rem; border-radius: 1rem; background: linear-gradient(90deg, var(--tono), #f2a93b 70%, #7c5cff); }
+
+.tapa {
+  position: absolute;
+  inset: 18% -3% auto;
+  height: 26%;
+  z-index: 1;
+  transform-origin: 50% 100%;
+  /* Tapa recostada detrás del zapato (caja abierta en vitrina); al abrir, se levanta y gira */
+  transform: translateY(calc(-110% - var(--abrir) * 55%)) rotateX(calc(var(--abrir) * 20deg)) rotate(calc(-3deg - var(--abrir) * 8deg));
+  transition: transform 560ms var(--curva-rebote);
+}
+.tapa span {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.25rem;
+  background: linear-gradient(to bottom, #2a2a38, #1a1a24 55%, #121219);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 0.5rem 0.75rem -0.4rem rgb(0 0 0 / 0.7);
+}
+.tapa span::after {
+  content: '';
+  position: absolute;
+  left: 8%; right: 8%; top: 42%;
+  height: 0.18rem;
+  border-radius: 1rem;
+  background: #f2a93b;
+  opacity: 0.75;
+}
+
+.sello {
+  position: absolute;
+  z-index: 4;
+  top: 8%;
+  right: -2%;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #f2a93b;
+  color: #0b0b10;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  rotate: 8deg;
+  box-shadow: 0 0.4rem 0.8rem -0.3rem rgb(0 0 0 / 0.6);
+}
+.selloEspera { background: #a993ff; }
+
+/* ==== Etiqueta ==== */
+.etiqueta { display: grid; gap: 0.1rem; }
+.nombre { margin: 0; font-family: var(--fuente-marca); font-size: var(--t-lg); font-weight: 700; }
+.enlace { color: var(--texto); text-decoration: none; }
+/* Toda la caja es tocable, con un solo enlace para el lector de pantalla */
+.enlace::after { content: ''; position: absolute; inset: 0; z-index: 5; }
+.caja:has(.enlace:focus-visible) { outline: 3px solid var(--foco); outline-offset: 0.5rem; border-radius: var(--radio-s); }
+.ref { margin: 0; font-size: var(--t-xs); color: var(--texto-2); letter-spacing: 0.04em; }
+.precio { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; margin: 0.15rem 0 0; }
+.precio strong { font-size: var(--t-lg); }
+.precio s { color: var(--texto-2); font-size: var(--t-sm); }
+.estado { margin: 0; font-size: var(--t-xs); font-weight: 700; color: var(--exito); }
+.estadoEspera { color: var(--secundario); }
+
+/* Entrada escalonada al cargar */
+@media (prefers-reduced-motion: no-preference) {
+  .caja { animation: llegar 600ms var(--curva) both; animation-delay: calc(var(--i) * 60ms); }
+}
+@keyframes llegar { from { opacity: 0; transform: translateY(1rem); } }
+
+/* Gama baja: sin 3D, solo desplazamiento */
+:global([data-rendimiento='ligero']) .tapa { transform: translateY(calc(-110% - var(--abrir) * 55%)); }
+:global([data-rendimiento='ligero']) .zapato { filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .caja { --abrir: 1; }
+}

@@ -1,0 +1,63 @@
+.beneficios { border-block: 1px solid var(--borde); background: var(--superficie); }
+.listaBeneficios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 0; padding: 1.25rem 0; list-style: none; }
+.listaBeneficios li { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+.listaBeneficios strong { display: block; font-size: var(--t-sm); line-height: 1.3; }
+.listaBeneficios small { display: block; color: var(--texto-2); font-size: var(--t-xs); }
+.iconoBeneficio { flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: color-mix(in srgb, var(--acento) 16%, transparent); color: var(--acento-texto); }
+@media (min-width: 60rem) { .listaBeneficios { grid-template-columns: repeat(4, 1fr); } }
+
+.cabezaSeccion { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+.cabezaSeccion h2 { margin: 0; max-width: 22ch; }
+
+.franjaOscura {
+  background:
+    radial-gradient(50rem 22rem at 85% 10%, color-mix(in srgb, var(--violeta) 22%, transparent), transparent 70%),
+    radial-gradient(40rem 20rem at 0% 100%, color-mix(in srgb, var(--ambar) 14%, transparent), transparent 70%),
+    var(--superficie);
+}
+.categorias { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.categoria {
+  position: relative;
+  display: grid;
+  gap: 0.35rem;
+  min-height: 12rem;
+  align-content: end;
+  padding: 1.25rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--fondo);
+  color: var(--texto);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform var(--medio) var(--curva), border-color var(--rapido);
+}
+.categoria:hover { transform: translateY(-4px); border-color: var(--acento); }
+.categoriaGeo {
+  position: absolute;
+  top: -2.5rem;
+  right: -2.5rem;
+  width: 9rem;
+  height: 9rem;
+  border: 2px solid var(--acento);
+  rotate: 45deg;
+  opacity: 0.55;
+  transition: rotate 700ms var(--curva);
+}
+.categoriaGeo::after { content: ''; position: absolute; inset: 1.25rem; border: 1px dashed var(--secundario); }
+.categoria:hover .categoriaGeo { rotate: 135deg; }
+.categoriaNombre { font-family: var(--fuente-marca); font-size: var(--t-xl); font-weight: 800; }
+.categoriaTexto { color: var(--texto-2); font-size: var(--t-sm); }
+.categoriaIr { position: absolute; right: 1.25rem; bottom: 1.25rem; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--acento); color: var(--sobre-acento); }
+.categoriaTexto { padding-right: 3rem; }
+
+.introOficio { max-width: 60ch; color: var(--texto-2); }
+.oficio { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: paso; }
+.oficio li { position: relative; padding: 1.5rem 1.25rem 1.25rem; border-top: 3px solid var(--acento); background: var(--superficie); border-radius: 0 0 var(--radio-m) var(--radio-m); }
+.oficio h3 { margin: 0.5rem 0 0.35rem; font-size: var(--t-lg); }
+.oficio p { margin: 0; color: var(--texto-2); font-size: var(--t-sm); }
+.numeroOficio { font-family: var(--fuente-marca); font-size: var(--t-2xl); font-weight: 800; background: linear-gradient(120deg, var(--ambar), var(--violeta)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.talla { background: linear-gradient(180deg, var(--fondo), var(--superficie)); }
+.tallaRejilla { display: grid; gap: 1.5rem; align-items: center; }
+.tallaRejilla p { color: var(--texto-2); max-width: 46ch; }
+@media (min-width: 60rem) { .tallaRejilla { grid-template-columns: 1fr 1fr; gap: 4rem; } }

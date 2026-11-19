@@ -1,0 +1,138 @@
+.portada {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: min(calc(100svh - var(--cabecera)), 60rem);
+  min-height: max(34rem, min(calc(100svh - var(--cabecera)), 60rem));
+  padding: 3rem var(--margen) 3.5rem;
+  overflow: hidden;
+  background: #0b0b10;
+  color: #f4f4f6;
+  text-align: center;
+}
+
+.escenario { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.geometria { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; animation: aparecer 1.4s var(--curva) 0.15s forwards; }
+
+.rombos, .rombosInverso { transform-box: view-box; transform-origin: 50% 47%; }
+.rombos { animation: girar 90s linear infinite; }
+.rombosInverso { animation: girar 140s linear infinite reverse; }
+
+/* Espectro iluminado detrás del logo */
+.espectro {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: min(44rem, 120vw);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #f2a93b, #ff7a59, #7c5cff, #3ec7ff, #f2a93b);
+  -webkit-mask: radial-gradient(closest-side, transparent 58%, #000 66%, transparent 78%);
+  mask: radial-gradient(closest-side, transparent 58%, #000 66%, transparent 78%);
+  opacity: 0;
+  animation: brotar 2.6s var(--curva) 0.2s forwards, girar 40s linear 2.8s infinite;
+}
+
+/* Humo: degradados suaves (sin filter: blur) */
+.humo {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: brotar 2.8s var(--curva) forwards, derivar var(--d, 22s) ease-in-out 2.8s infinite alternate;
+}
+.h1 { --d: 20s; width: 46rem; height: 26rem; margin: -13rem 0 0 -23rem; background: radial-gradient(closest-side, rgb(242 169 59 / 0.55), rgb(242 169 59 / 0) 70%); }
+.h2 { --d: 26s; width: 38rem; height: 30rem; margin: -18rem 0 0 -26rem; background: radial-gradient(closest-side, rgb(124 92 255 / 0.5), rgb(124 92 255 / 0) 70%); animation-delay: 0.15s, 3s; }
+.h3 { --d: 24s; width: 36rem; height: 28rem; margin: -10rem 0 0 -8rem; background: radial-gradient(closest-side, rgb(255 122 89 / 0.32), rgb(255 122 89 / 0) 70%); animation-delay: 0.3s, 3.2s; }
+.h4 { --d: 30s; width: 60rem; height: 18rem; margin: 2rem 0 0 -30rem; background: radial-gradient(closest-side, rgb(169 147 255 / 0.22), rgb(169 147 255 / 0) 72%); animation-delay: 0.45s, 3.4s; }
+.h5 { --d: 18s; width: 22rem; height: 22rem; margin: -11rem 0 0 -11rem; background: radial-gradient(closest-side, rgb(255 208 138 / 0.5), rgb(255 208 138 / 0) 70%); animation-delay: 0s, 2.8s; }
+
+.vineta {
+  position: absolute; inset: 0;
+  background: radial-gradient(120% 80% at 50% 45%, transparent 45%, rgb(5 5 8 / 0.85) 100%), linear-gradient(to bottom, transparent 70%, #0b0b10);
+}
+
+/* Contenido */
+.contenido { position: relative; display: grid; justify-items: center; gap: 0.5rem; max-width: 100%; }
+.antetitulo {
+  margin: 0; font-size: var(--t-xs); font-weight: 800; letter-spacing: 0.32em; text-transform: uppercase; color: #ffd08a;
+  opacity: 0; animation: subir 900ms var(--curva) 1.1s forwards;
+}
+.titulo { margin: 0; line-height: 1; }
+.logo {
+  display: block;
+  font-family: var(--fuente-marca);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 9vw + 0.4rem, 8.5rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #ffd08a 0%, #f2a93b 30%, #fff6e6 46%, #f2a93b 60%, #c9b8ff 100%);
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0.5rem 2.5rem rgb(242 169 59 / 0.35));
+  opacity: 0;
+  animation: logo-entra 1.2s var(--curva) forwards;
+  background-position: 30% 0;
+}
+.lema {
+  max-width: 34ch; margin: 0.75rem 0 0; color: #d6d6e2; font-size: var(--t-lg);
+  opacity: 0; animation: subir 900ms var(--curva) 1.35s forwards;
+}
+.botones {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5rem;
+  opacity: 0; animation: subir 900ms var(--curva) 1.55s forwards;
+}
+.colecciones { margin-top: 1.75rem; opacity: 0; animation: subir 900ms var(--curva) 1.75s forwards; }
+.colecciones ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.colecciones a {
+  display: inline-flex; align-items: center; min-height: var(--toque); padding: 0.4rem 1rem; border-radius: 999px;
+  border: 1px solid rgb(244 244 246 / 0.22); background: rgb(11 11 16 / 0.45); color: #f4f4f6; font-weight: 700; font-size: var(--t-sm); text-decoration: none;
+  transition: border-color var(--rapido), color var(--rapido);
+}
+.colecciones a:hover { border-color: #f2a93b; color: #ffd08a; }
+.secundario { --b-texto: #f4f4f6; border-color: rgb(244 244 246 / 0.35); }
+.secundario:hover { border-color: #f2a93b; }
+
+@keyframes aparecer { to { opacity: 1; } }
+@keyframes girar { to { rotate: 360deg; } }
+@keyframes brotar {
+  0% { opacity: 0; scale: 0.15; }
+  55% { opacity: 1; }
+  100% { opacity: 1; scale: 1; }
+}
+@keyframes derivar {
+  0% { translate: 0 0; rotate: 0deg; }
+  50% { translate: 3% -4%; rotate: 8deg; }
+  100% { translate: -4% 3%; rotate: -6deg; }
+}
+@keyframes logo-entra {
+  from { opacity: 0.12; transform: translateY(0.4rem) scale(1.12, 1); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes subir { from { opacity: 0; transform: translateY(0.75rem); } to { opacity: 1; transform: none; } }
+
+/* Fuera de pantalla: sin consumo */
+.portada[data-pausado='si'] .humo,
+.portada[data-pausado='si'] .espectro,
+.portada[data-pausado='si'] .rombos,
+.portada[data-pausado='si'] .rombosInverso { animation-play-state: paused; }
+
+/* Gama baja: menos capas, sin deriva infinita */
+:global([data-rendimiento='ligero']) .h3,
+:global([data-rendimiento='ligero']) .h4 { display: none; }
+:global([data-rendimiento='ligero']) .humo,
+:global([data-rendimiento='ligero']) .espectro { animation: brotar 1.6s var(--curva) forwards; }
+:global([data-rendimiento='ligero']) .rombos,
+:global([data-rendimiento='ligero']) .rombosInverso { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .humo, .espectro, .geometria, .logo, .antetitulo, .lema, .botones, .colecciones { opacity: 1 !important; scale: 1; animation: none !important; }
+  .logo { background-position: 0 0; }
+}

@@ -1,0 +1,64 @@
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--fondo) 92%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--borde) 70%, transparent);
+}
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--cabecera);
+}
+.nav { margin-inline: auto; display: none; }
+.nav ul { display: flex; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+.nav a {
+  display: inline-flex; align-items: center; min-height: var(--toque); padding: 0.5rem 0.9rem;
+  border-radius: 999px; color: var(--texto); font-weight: 700; font-size: var(--t-sm); text-decoration: none;
+  transition: background-color var(--rapido), color var(--rapido);
+}
+.nav a:hover, .nav a[aria-current='page'] { background: var(--superficie-2); color: var(--acento-texto); }
+
+.acciones { display: flex; align-items: center; gap: 0.15rem; margin-left: auto; }
+.carrito { position: relative; }
+.contador {
+  position: absolute; top: 0.2rem; right: 0.1rem; min-width: 1.25rem; height: 1.25rem; padding: 0 0.3rem;
+  display: grid; place-items: center; border-radius: 999px; background: var(--acento); color: var(--sobre-acento);
+  font-size: 0.72rem; font-weight: 900; line-height: 1;
+  animation: rebote 520ms var(--curva-rebote);
+}
+@keyframes rebote { 0% { transform: scale(0.3); } 60% { transform: scale(1.25); } }
+
+.fila .soloEscritorio { display: none; }
+
+@media (min-width: 60rem) {
+  .nav { display: block; }
+  .fila .soloMovil { display: none; }
+  .fila .soloEscritorio { display: inline-grid; }
+  .acciones { margin-left: 0; }
+}
+
+/* Menú móvil: hoja lateral nativa (<dialog>: foco atrapado y Esc gratis) */
+.menuMovil {
+  margin: 0 auto 0 0;
+  width: min(22rem, 88vw);
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: var(--superficie);
+  color: var(--texto);
+}
+.menuMovil::backdrop { background: rgb(5 5 10 / 0.6); }
+.menuMovil[open] { animation: deslizar var(--medio) var(--curva); }
+@keyframes deslizar { from { transform: translateX(-100%); } }
+.menuInterior { padding: 0.75rem 1.25rem 2rem; }
+.menuCabeza { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.menuMovil ul { margin: 0; padding: 0; list-style: none; }
+.menuMovil li a {
+  display: flex; align-items: center; min-height: 3.25rem; padding-inline: 0.5rem; border-bottom: 1px solid var(--borde);
+  color: var(--texto); font-weight: 700; font-size: var(--t-lg); text-decoration: none;
+}
+.menuMovil li a:hover { color: var(--acento-texto); }

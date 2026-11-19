@@ -1,0 +1,16 @@
+diff --git a/src/e2e/specs/recorrido-comercio.spec.ts b/src/e2e/specs/recorrido-comercio.spec.ts
+index 3d6a2ab..70d5e15 100644
+--- a/src/e2e/specs/recorrido-comercio.spec.ts
++++ b/src/e2e/specs/recorrido-comercio.spec.ts
+@@ -272,6 +272,11 @@ async function recorrer(r: Recorrido, base: string): Promise<void> {
+             await r.auditar('Producto');
+             await r.leerMonto('Producto', SEL.precioProducto);
+         }
++        // Tiendas con variante obligatoria (talla, color): la clienta elige la primera disponible antes de agregar
++        if (SEL.opcionVariante.length > 0) {
++            const variante = page.locator(SEL.opcionVariante.join(', ')).filter({ visible: true }).first();
++            if (await variante.isVisible().catch(() => false)) await r.tocar(variante, 'Elegir variante');
++        }
+         const agregar = await exigir(r, SEL.agregarCarrito, 'Agregar al carrito');
+         if (i === 0) {
+             const control = await detector.auditarControlPrincipal(agregar, 'Producto · Agregar al carrito');

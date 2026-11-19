@@ -1,0 +1,85 @@
+.pie {
+  padding-block: 3rem 2rem;
+  background:
+    radial-gradient(60rem 20rem at 50% 0%, color-mix(in srgb, var(--violeta) 14%, transparent), transparent 70%),
+    var(--fondo);
+}
+
+/* La etiqueta conserva el papel crema en ambos temas, como una etiqueta real */
+.etiqueta {
+  --papel: #f3eee4;
+  --tinta: #16130f;
+  --tinta-2: #4b443a;
+  --linea: #16130f;
+  position: relative;
+  color: var(--tinta);
+  background: var(--papel);
+  border-radius: 0.6rem;
+  box-shadow: 0 1.5rem 3rem -1.5rem rgb(0 0 0 / 0.6);
+  overflow: hidden;
+}
+.etiqueta::before {
+  /* perforación superior */
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.5rem;
+  background: radial-gradient(circle at 0.5rem 0, var(--fondo) 0.28rem, transparent 0.3rem) 0 0 / 1rem 0.5rem repeat-x;
+}
+.etiqueta a { color: var(--tinta); text-decoration-color: color-mix(in srgb, var(--tinta) 40%, transparent); }
+.etiqueta a:hover { text-decoration-color: currentColor; }
+.etiqueta :focus-visible { outline-color: #5236d6; }
+
+.encabezado {
+  display: grid;
+  gap: 1rem;
+  padding: 1.75rem 1.25rem 1rem;
+  border-bottom: 2px solid var(--linea);
+}
+.marca :global(svg) { color: var(--tinta); }
+.marca [class*='logo'] { color: var(--tinta); --acento: #b06a00; }
+.lema { margin: 0.25rem 0 0; color: var(--tinta-2); font-size: var(--t-sm); }
+
+.campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 0.5rem 1rem; margin: 0; }
+.campos div { border-left: 2px solid var(--linea); padding-left: 0.6rem; }
+.campos dt { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tinta-2); }
+.campos dd { margin: 0; font-weight: 800; font-family: var(--fuente-marca); font-size: var(--t-sm); }
+
+.cuerpo { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.columna { padding: 1rem 1.25rem; border-bottom: 1px dashed color-mix(in srgb, var(--linea) 45%, transparent); }
+.campo {
+  display: flex; justify-content: space-between; margin: 0 0 0.5rem;
+  font-family: var(--fuente-texto); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 900;
+}
+.campo span:last-child { color: var(--tinta-2); font-weight: 700; }
+.columna ul { margin: 0; padding: 0; list-style: none; }
+.columna li a { display: flex; align-items: center; min-height: var(--toque); font-weight: 600; }
+.direccion { display: grid; gap: 0.6rem; font-style: normal; font-size: var(--t-sm); }
+.direccion a { display: inline-flex; align-items: center; min-height: var(--toque); }
+
+.tallas { display: grid; grid-template-columns: repeat(5, 1fr); border-block: 2px solid var(--linea); }
+.tallas span { display: grid; justify-items: center; padding: 0.5rem 0.25rem; border-right: 1px solid var(--linea); }
+.tallas span:last-child { border-right: 0; background: var(--tinta); color: var(--papel); }
+.tallas small { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+.tallas strong { font-family: var(--fuente-marca); font-size: var(--t-xl); line-height: 1.1; }
+
+.base { display: grid; grid-template-columns: 1fr auto; gap: 1rem 1.25rem; padding: 1rem 1.25rem 1.25rem; align-items: center; }
+.codigo { display: grid; gap: 0.15rem; max-width: 14rem; }
+.codigo svg { width: 100%; height: 3rem; fill: var(--tinta); }
+.codigo span { font-family: ui-monospace, Menlo, monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-align: center; }
+.qr { display: grid; justify-items: center; gap: 0.25rem; }
+.qr svg { width: 5.5rem; height: 5.5rem; fill: var(--tinta); padding: 0.3rem; background: #fff; border-radius: 0.3rem; }
+.qr span { font-size: 0.7rem; font-weight: 800; text-align: center; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.08em; }
+.legal { grid-column: 1 / -1; font-size: var(--t-xs); color: var(--tinta-2); }
+.legal p { margin: 0 0 0.35rem; }
+.legal a { display: inline-flex; align-items: center; min-height: var(--toque); }
+.firma { font-weight: 800; letter-spacing: 0.06em; }
+
+@media (min-width: 52rem) {
+  .encabezado { grid-template-columns: 1.2fr 2fr; align-items: end; padding-inline: 2rem; }
+  .columna { padding-inline: 2rem; border-bottom: 0; border-right: 1px dashed color-mix(in srgb, var(--linea) 45%, transparent); }
+  .columna:last-child { border-right: 0; }
+  .base { grid-template-columns: auto 1fr auto; padding-inline: 2rem; }
+  .legal { grid-column: auto; order: -0; }
+  .qr { order: 2; }
+}
