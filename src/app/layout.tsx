@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 import { ProveedorAvisos } from '@/components/Avisos';
+import { BienvenidaPreferencias } from '@/components/BienvenidaPreferencias';
 import { Cabecera } from '@/components/Cabecera';
 import { PiePagina } from '@/components/PiePagina';
 import { SCRIPT_PREFERENCIAS } from '@/estado/preferencias';
@@ -65,6 +66,7 @@ export default function RaizLayout({ children }: { readonly children: ReactNode 
       <body>
         <a href="#contenido" className="saltar-contenido">Saltar al contenido</a>
         <ProveedorAvisos>
+          <BienvenidaPreferencias />
           <Cabecera />
           <main id="contenido" tabIndex={-1}>{children}</main>
           <PiePagina />

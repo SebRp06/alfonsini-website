@@ -36,3 +36,11 @@
 .opcion:has(input:focus-visible) { outline: 3px solid var(--foco); outline-offset: 2px; }
 .valor { font-size: var(--t-xs); color: var(--texto-2); font-weight: 700; }
 .nota { margin: 1rem 0 0; font-size: var(--t-xs); color: var(--texto-2); }
+.textoTema { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Variante compacta (bienvenida): letra y tema en una fila */
+.filaCompacta { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; }
+.filaCompacta .grupo { margin: 0; }
+.filaCompacta .opciones { flex-wrap: nowrap; gap: 0.35rem; }
+.opcionCompacta { flex: 0 0 auto; min-width: var(--toque); min-height: var(--toque); padding: 0.25rem 0.5rem; place-content: center; }
+.filaCompacta .grupo + .grupo { padding-left: 0.75rem; border-left: 1px solid var(--borde); }

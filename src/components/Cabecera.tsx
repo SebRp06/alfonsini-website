@@ -54,9 +54,11 @@ export function Cabecera() {
           <Link href="/tienda#buscar" className={`icono-boton ${estilos.soloEscritorio}`} aria-label="Buscar en la tienda">
             <IconoBuscar />
           </Link>
-          <button type="button" className="icono-boton" aria-label="Accesibilidad: tamaño de letra y tema" aria-haspopup="dialog"
+          <button type="button" className={`icono-boton ${estilos.botonA11y}`} aria-haspopup="dialog" data-boton-a11y=""
             onClick={() => a11y.current?.showModal()}>
             <IconoAccesibilidad />
+            <span className={estilos.etiquetaA11y}>Ver a mi manera</span>
+            <span className="visualmente-oculto">: tamaño de letra y tema</span>
           </button>
           <Link href="/carrito" className={`icono-boton ${estilos.carrito}`} aria-label={etiquetaCarrito} data-destino-carrito="">
             <IconoBolsa />

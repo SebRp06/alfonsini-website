@@ -1,0 +1,6 @@
+{
+  "cookies": [],
+  "origins": [
+    { "origin": "http://localhost:3000", "localStorage": [{ "name": "alfonsini:bienvenida:v1", "value": "visto-en-pruebas" }] }
+  ]
+}

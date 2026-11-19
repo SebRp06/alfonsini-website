@@ -15,6 +15,8 @@ export interface Preferencias {
 }
 
 export const CLAVE_PREFERENCIAS = 'alfonsini:preferencias:v1';
+/** Marca de que la tarjeta de bienvenida ya se mostró en este dispositivo. */
+export const CLAVE_BIENVENIDA = 'alfonsini:bienvenida:v1';
 
 const esPreferencias = (v: unknown): v is Preferencias =>
   typeof v === 'object' && v !== null && ['sistema', 'claro', 'oscuro'].includes((v as Preferencias).tema)
@@ -36,4 +38,4 @@ export const cambiarPreferencias = (cambio: Partial<Preferencias>): void => {
 };
 
 /** Script inline (string) que corre antes de pintar: evita el destello de tema y de tamaño. */
-export const SCRIPT_PREFERENCIAS = `(function(){try{var d=document.documentElement,p={tema:'sistema',escala:1};var s=localStorage.getItem('${CLAVE_PREFERENCIAS}');if(s){var v=JSON.parse(s);if(v&&v.tema)p=v;}var o=p.tema==='oscuro'||(p.tema==='sistema'&&matchMedia('(prefers-color-scheme: dark)').matches);d.dataset.tema=o?'oscuro':'claro';d.style.colorScheme=o?'dark':'light';d.style.setProperty('--escala-texto',String(p.escala||1));var n=navigator,m=n.deviceMemory||8,c=n.hardwareConcurrency||8,a=n.connection&&n.connection.saveData;if(m<=2||c<=2||a)d.dataset.rendimiento='ligero';}catch(e){document.documentElement.dataset.tema='oscuro';}})();`;
+export const SCRIPT_PREFERENCIAS = `(function(){try{var d=document.documentElement,p={tema:'sistema',escala:1};var s=localStorage.getItem('${CLAVE_PREFERENCIAS}');if(s){var v=JSON.parse(s);if(v&&v.tema)p=v;}var o=p.tema==='oscuro'||(p.tema==='sistema'&&matchMedia('(prefers-color-scheme: dark)').matches);d.dataset.tema=o?'oscuro':'claro';d.style.colorScheme=o?'dark':'light';d.style.setProperty('--escala-texto',String(p.escala||1));var n=navigator,m=n.deviceMemory||8,c=n.hardwareConcurrency||8,a=n.connection&&n.connection.saveData;if(m<=2||c<=2||a)d.dataset.rendimiento='ligero';if(!localStorage.getItem('${CLAVE_BIENVENIDA}'))d.dataset.bienvenida='pendiente';}catch(e){document.documentElement.dataset.tema='oscuro';}})();`;
