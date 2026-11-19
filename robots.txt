@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /
+
+Host: https://sebrp06.github.io/alfonsini-website
+Sitemap: https://sebrp06.github.io/alfonsini-website/sitemap.xml

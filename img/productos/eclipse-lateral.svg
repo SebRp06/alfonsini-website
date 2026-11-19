@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600"><ellipse cx="400" cy="470" rx="330" ry="19.8" fill="#000" opacity="0.35"/><g transform="translate(40 96) scale(1.8 1.8)"><g style="--acento:#F2A93B;--oscuro:#3b2f77;--claro:#d3ccf4">
+    <linearGradient id="lc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9f91e6"/><stop offset=".55" stop-color="#6B55D9"/><stop offset="1" stop-color="#3b2f77"/></linearGradient>
+    <linearGradient id="lb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    
+    <path d="M38 172 L36 104 Q36 78 62 74 L112 72 Q132 72 142 86 L176 118 Q196 132 232 136 L318 144 Q366 150 382 166 L384 170 Z" fill="url(#lc)"/>
+    <path d="M38 172 L36 104 Q36 78 62 74 L112 72 Q132 72 142 86 L176 118 Q196 132 232 136 L318 144 Q366 150 382 166 L384 170 Z" fill="url(#lb)"/>
+    <path d="M120 170 Q150 122 200 132 Q240 140 262 170 Z" fill="var(--acento)" opacity=".55"/>
+      <path d="M300 144 Q352 149 382 166 L384 170 L300 170 Z" fill="#fff" opacity=".16"/>
+      <path d="M40 104 Q42 84 62 82 L108 80 Q122 80 130 92" fill="none" stroke="var(--oscuro)" stroke-width="7" stroke-linecap="round"/>
+      <path d="M36 104 L27 100 L29 150 L37 152 Z" fill="var(--acento)"/>
+      <path d="M150 94 l10 -8" stroke="var(--claro)" stroke-width="5" stroke-linecap="round"/><path d="M168 103 l10 -8" stroke="var(--claro)" stroke-width="5" stroke-linecap="round"/><path d="M186 112 l10 -8" stroke="var(--claro)" stroke-width="5" stroke-linecap="round"/><path d="M204 121 l10 -8" stroke="var(--claro)" stroke-width="5" stroke-linecap="round"/><path d="M222 130 l10 -8" stroke="var(--claro)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M30 186 L388 182" stroke="var(--oscuro)" stroke-width="2" opacity=".35"/>
+      <path d="M46 162 L374 158" stroke="var(--claro)" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>
+    <path d="M22 196 Q20 176 40 172 L372 168 Q392 168 394 184 Q395 198 378 200 L40 202 Q24 202 22 196 Z" fill="#F1EEE8"/>
+    <path d="M60 140 l10 -18 l10 18 m-16 -6 h12" fill="none" stroke="var(--claro)" stroke-width="3" stroke-linejoin="round" opacity=".85"/>
+  </g></g></svg>

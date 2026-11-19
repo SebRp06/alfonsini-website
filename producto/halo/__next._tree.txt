@@ -1,0 +1,9 @@
+:HL["/alfonsini-website/_next/static/chunks/0m8mi_ql9wwb-.css","style"]
+:HL["/alfonsini-website/_next/static/chunks/22cc0eeebj5ci.css","style"]
+:HL["/alfonsini-website/_next/static/media/manrope_latin-s.p.1p_a2k8qd5zhp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/alfonsini-website/_next/static/media/unbounded_latin-s.p.1tz5lbfnvawi1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/alfonsini-website/_next/static/chunks/1zct69poh-61s.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"halo","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"producto","h":131136,"c":"$Q2"}]]
+0:{"b":"NyXm9jeFK4M6hoM3kROhn","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}

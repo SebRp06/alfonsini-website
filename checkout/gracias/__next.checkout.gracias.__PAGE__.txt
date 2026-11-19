@@ -1,0 +1,31 @@
+2:"$Sreact.fragment"
+3:"/alfonsini-website/_next/static/chunks/3qfy96eoyh-ek.js"
+4:"/alfonsini-website/_next/static/chunks/3vanh3pneg600.js"
+5:I[39756,["$3","$4"],"default"]
+6:I[37457,["$3","$4"],"default"]
+d:"$Sreact.suspense"
+e:"/alfonsini-website/_next/static/chunks/045xmkb7kescx.js"
+f:"/alfonsini-website/_next/static/chunks/1fqsb3ccgb_0c.js"
+10:I[1436,["$3","$4","$e","$f"],"Gracias"]
+11:I[97367,["$3","$4"],"OutletBoundary"]
+14:"ViewportBoundary"
+15:I[97367,["$3","$4"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$3","$4"],"$16"]
+18:I[27201,["$3","$4"],"IconMark"]
+8:X
+8:C
+9:X
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"contenedor","style":{"paddingBlock":"2rem 4rem"},"children":["$","$d",null,{"fallback":["$","div",null,{"style":{"display":"grid","placeItems":"center","minHeight":"50vh"},"children":["$","span",null,{"className":"_3be86W_isotipo undefined","role":"status","aria-live":"polite","children":[["$","svg",null,{"className":"_3be86W_marca","viewBox":"0 0 48 48","aria-hidden":"true","focusable":"false","children":[["$","defs",null,{"children":["$","linearGradient",null,{"id":"iso-grad","x1":"0","y1":"0","x2":"1","y2":"1","children":[["$","stop",null,{"offset":"0","stopColor":"#ffd08a"}],["$","stop",null,{"offset":".55","stopColor":"#f2a93b"}],["$","stop",null,{"offset":"1","stopColor":"#7c5cff"}]]}]}],["$","rect",null,{"className":"_3be86W_marco","x":"3","y":"3","width":"42","height":"42","rx":"12"}],["$","path",null,{"className":"_3be86W_piernas","d":"M12 37 L24 10 L36 37"}],["$","path",null,{"className":"_3be86W_suela","d":"M15.5 29.5 Q24 34 32.5 29.5"}]]}],false,["$","span",null,{"className":"_3be86W_texto","children":"Confirmando"}]]}]}],"children":["$","$L10",null,{}]}]}],[["$","script","script-0",{"src":"/alfonsini-website/_next/static/chunks/045xmkb7kescx.js","async":true}],["$","script","script-1",{"src":"/alfonsini-website/_next/static/chunks/1fqsb3ccgb_0c.js","async":true}]],["$","$L11",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$9"}}]]
+a:[["children",{"s":"gracias","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+1:[["children",{"s":"checkout","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0b0b10","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f4f6","media":"(prefers-color-scheme: light)"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$d",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"¡Gracias por tu compra! · Alfonsini"}],["$","meta","1",{"name":"description","content":"Calzado fabricado en Colombia. Compra en línea con pago contra entrega o transferencia Bre-B y envío a todo el país."}],["$","meta","2",{"name":"application-name","content":"Alfonsini"}],["$","link","3",{"rel":"manifest","href":"/alfonsini-website/manifest.webmanifest"}],["$","meta","4",{"name":"keywords","content":"calzado,zapatos,Colombia,tienda en línea,Alfonsini,zapatos hechos en Colombia"}],["$","meta","5",{"name":"robots","content":"noindex, nofollow"}],["$","link","6",{"rel":"canonical","href":"https://sebrp06.github.io/alfonsini-website/"}],["$","meta","7",{"name":"format-detection","content":"telephone=no"}],["$","meta","8",{"property":"og:title","content":"Alfonsini · Calzado hecho en Colombia"}],["$","meta","9",{"property":"og:description","content":"Calzado fabricado en Colombia. Compra en línea con pago contra entrega o transferencia Bre-B y envío a todo el país."}],["$","meta","10",{"property":"og:url","content":"https://sebrp06.github.io/alfonsini-website/"}],["$","meta","11",{"property":"og:site_name","content":"Alfonsini"}],["$","meta","12",{"property":"og:locale","content":"es_CO"}],["$","meta","13",{"property":"og:image","content":"https://sebrp06.github.io/alfonsini-website/og.jpg"}],["$","meta","14",{"property":"og:image:width","content":"1200"}],["$","meta","15",{"property":"og:image:height","content":"630"}],["$","meta","16",{"property":"og:image:alt","content":"Alfonsini"}],["$","meta","17",{"property":"og:type","content":"website"}],["$","meta","18",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","19",{"name":"twitter:title","content":"Alfonsini · Calzado hecho en Colombia"}],["$","meta","20",{"name":"twitter:description","content":"Calzado fabricado en Colombia. Compra en línea con pago contra entrega o transferencia Bre-B y envío a todo el país."}],["$","meta","21",{"name":"twitter:image","content":"https://sebrp06.github.io/alfonsini-website/og.jpg"}],["$","link","22",{"rel":"icon","href":"/alfonsini-website/icon.svg?icon.3x_pnoycef963.svg","sizes":"any","type":"image/svg+xml"}],["$","$L18","23",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@19","v":null,"s":"$9"}},"a":"$@1a","u":"$@1b","b":"NyXm9jeFK4M6hoM3kROhn"}
+12:null
+1b:true
+9:300
+9:C
+1a:0
+b:"$undefined"
+7:"$undefined"
+19:"$undefined"
+13:"$undefined"

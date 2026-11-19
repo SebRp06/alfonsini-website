@@ -1,0 +1,7 @@
+:HL["/alfonsini-website/_next/static/chunks/0m8mi_ql9wwb-.css","style"]
+:HL["/alfonsini-website/_next/static/chunks/22cc0eeebj5ci.css","style"]
+:HL["/alfonsini-website/_next/static/media/manrope_latin-s.p.1p_a2k8qd5zhp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/alfonsini-website/_next/static/media/unbounded_latin-s.p.1tz5lbfnvawi1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"guia-de-tallas","h":64,"c":"$Q2"}]]
+0:{"b":"NyXm9jeFK4M6hoM3kROhn","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

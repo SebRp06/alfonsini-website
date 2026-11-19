@@ -1,0 +1,28 @@
+2:"$Sreact.fragment"
+3:"/alfonsini-website/_next/static/chunks/3qfy96eoyh-ek.js"
+4:"/alfonsini-website/_next/static/chunks/3vanh3pneg600.js"
+5:I[39756,["$3","$4"],"default"]
+6:I[37457,["$3","$4"],"default"]
+d:I[97367,["$3","$4"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$3","$4"],"$11"]
+13:"MetadataBoundary"
+14:I[97367,["$3","$4"],"$13"]
+15:I[27201,["$3","$4"],"IconMark"]
+8:X
+8:C
+9:X
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","article",null,{"className":"contenedor seccion texto-legal","style":{"paddingTop":"2rem"},"children":[["$","p",null,{"className":"antetitulo","children":"Información"}],["$","h1",null,{"style":{"fontSize":"var(--t-3xl)"},"children":"Envíos y tiempos de entrega"}],["$","p",null,{"children":["$","strong",null,{"children":"Cobertura, costos y tiempos de entrega en Colombia."}]}],["$","p",null,{"children":"Este es un texto de muestra para la maqueta. El documento definitivo lo prepara el equipo legal con los datos de Alfonsini (razón social, NIT, domicilio y canales de atención) antes de publicar el sitio."}],["$","h2",null,{"children":"Contenido previsto"}],["$","ul",null,{"children":[["$","li",null,{"children":"Responsable y datos de contacto."}],["$","li",null,{"children":"Alcance, condiciones y plazos."}],["$","li",null,{"children":"Derechos de quien compra y cómo ejercerlos."}],["$","li",null,{"children":"Vigencia y fecha de la última actualización."}]]}]]}],null,["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":"$@10","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"documento","t":"d","k":"envios","s":[]},"h":65632,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+1:[["children",{"s":"legal","h":131136,"d":{"r":["$","$2","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0b0b10","media":"(prefers-color-scheme: dark)"}],["$","meta","3",{"name":"theme-color","content":"#f4f4f6","media":"(prefers-color-scheme: light)"}]]}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Envíos y tiempos de entrega · Alfonsini"}],["$","meta","1",{"name":"description","content":"Cobertura, costos y tiempos de entrega en Colombia."}],["$","meta","2",{"name":"application-name","content":"Alfonsini"}],["$","link","3",{"rel":"manifest","href":"/alfonsini-website/manifest.webmanifest"}],["$","meta","4",{"name":"keywords","content":"calzado,zapatos,Colombia,tienda en línea,Alfonsini,zapatos hechos en Colombia"}],["$","meta","5",{"name":"robots","content":"noindex, nofollow"}],["$","link","6",{"rel":"canonical","href":"https://sebrp06.github.io/alfonsini-website/legal/envios/"}],["$","meta","7",{"name":"format-detection","content":"telephone=no"}],["$","meta","8",{"property":"og:title","content":"Alfonsini · Calzado hecho en Colombia"}],["$","meta","9",{"property":"og:description","content":"Calzado fabricado en Colombia. Compra en línea con pago contra entrega o transferencia Bre-B y envío a todo el país."}],["$","meta","10",{"property":"og:url","content":"https://sebrp06.github.io/alfonsini-website/"}],["$","meta","11",{"property":"og:site_name","content":"Alfonsini"}],["$","meta","12",{"property":"og:locale","content":"es_CO"}],["$","meta","13",{"property":"og:image","content":"https://sebrp06.github.io/alfonsini-website/og.jpg"}],["$","meta","14",{"property":"og:image:width","content":"1200"}],["$","meta","15",{"property":"og:image:height","content":"630"}],["$","meta","16",{"property":"og:image:alt","content":"Alfonsini"}],["$","meta","17",{"property":"og:type","content":"website"}],["$","meta","18",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","19",{"name":"twitter:title","content":"Alfonsini · Calzado hecho en Colombia"}],["$","meta","20",{"name":"twitter:description","content":"Calzado fabricado en Colombia. Compra en línea con pago contra entrega o transferencia Bre-B y envío a todo el país."}],["$","meta","21",{"name":"twitter:image","content":"https://sebrp06.github.io/alfonsini-website/og.jpg"}],["$","link","22",{"rel":"icon","href":"/alfonsini-website/icon.svg?icon.3x_pnoycef963.svg","sizes":"any","type":"image/svg+xml"}],["$","$L15","23",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@16","v":null,"s":"$9"}},"a":"$@17","u":"$@18","b":"NyXm9jeFK4M6hoM3kROhn"}
+f:null
+18:true
+9:300
+9:C
+17:0
+b:"$undefined"
+7:"$undefined"
+16:"$undefined"
+10:"$undefined"
