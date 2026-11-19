@@ -62,3 +62,19 @@
   color: var(--texto); font-weight: 700; font-size: var(--t-lg); text-decoration: none;
 }
 .menuMovil li a:hover { color: var(--acento-texto); }
+
+/* Botón "Ver a mi manera": con texto visible en pantallas amplias y resaltado al cerrar la bienvenida */
+.acciones .botonA11y { display: inline-flex; align-items: center; gap: 0.4rem; border: 2px solid color-mix(in srgb, var(--acento) 45%, transparent); }
+.etiquetaA11y { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (min-width: 60rem) {
+  .acciones .botonA11y { padding-inline: 0.85rem 1rem; }
+  .etiquetaA11y { position: static; width: auto; height: auto; overflow: visible; clip: auto; font-weight: 800; font-size: var(--t-sm); }
+}
+:global(html[data-resaltar-a11y='si']) .botonA11y {
+  border-color: var(--acento);
+  animation: resaltar 1.1s var(--curva) 3;
+}
+@keyframes resaltar {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--acento) 70%, transparent); }
+  100% { box-shadow: 0 0 0 0.9rem color-mix(in srgb, var(--acento) 0%, transparent); }
+}

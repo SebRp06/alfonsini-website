@@ -12,7 +12,8 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
-  use: { baseURL: `http://localhost:${PUERTO}`, trace: 'retain-on-failure', locale: 'es-CO', timezoneId: 'America/Bogota' },
+  // Las pruebas generales parten con la bienvenida ya vista; bienvenida.spec.ts prueba la primera visita
+  use: { baseURL: `http://localhost:${PUERTO}`, storageState: 'tests/e2e/estado-bienvenida-vista.json', trace: 'retain-on-failure', locale: 'es-CO', timezoneId: 'America/Bogota' },
   projects: [
     { name: 'movil-375', use: { ...devices['iPhone 13'], viewport: { width: 375, height: 812 }, browserName: 'chromium' } },
     { name: 'escritorio', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } } },

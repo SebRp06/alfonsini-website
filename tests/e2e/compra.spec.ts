@@ -70,7 +70,7 @@ test('agotado: la acción sigue viva y lleva a la lista de espera', async ({ pag
 
 test('tamaño de letra y tema cambian al instante, sin recargar', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: /Accesibilidad/ }).click();
+  await page.getByRole('button', { name: /Ver a mi manera/ }).click();
   await page.getByRole('dialog').locator('label', { hasText: '125 %' }).click();
   await expect(page.locator('html')).toHaveAttribute('style', /--escala-texto: 1.25/);
   await page.getByRole('dialog').locator('label', { hasText: 'Claro' }).click();

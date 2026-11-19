@@ -4,7 +4,8 @@
   display: grid;
   place-items: center;
   min-height: min(calc(100svh - var(--cabecera)), 60rem);
-  min-height: max(34rem, min(calc(100svh - var(--cabecera)), 60rem));
+  min-height: max(30rem, min(calc(100svh - var(--cabecera) - var(--alto-bienvenida, 0rem)), 60rem));
+  transition: min-height var(--medio) var(--curva);
   padding: 3rem var(--margen) 3.5rem;
   overflow: hidden;
   background: #0b0b10;
