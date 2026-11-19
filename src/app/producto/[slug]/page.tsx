@@ -6,7 +6,7 @@ import { Estanteria } from '@/components/vitrina/Estanteria';
 import { CATEGORIAS, PRODUCTOS } from '@/datos/catalogo';
 import { disponible } from '@/domain/tipos';
 import { repositorios } from '@/lib/repositorios';
-import { SITIO } from '@/lib/sitio';
+import { absoluta, SITIO } from '@/lib/sitio';
 
 interface Props { readonly params: Promise<{ slug: string }> }
 
@@ -42,7 +42,7 @@ export default async function PaginaProducto({ params }: Props) {
         sku: p.referencia,
         description: p.resumen,
         color: p.color.nombre,
-        image: p.imagenes.map((i) => `${SITIO.url}${i.src}`),
+        image: p.imagenes.map((i) => absoluta(i.src)),
         brand: { '@type': 'Brand', name: SITIO.nombre },
         category: categoria?.nombre,
         offers: {

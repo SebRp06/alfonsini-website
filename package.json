@@ -16,7 +16,8 @@
     "test:e2e": "playwright test",
     "test:a11y": "playwright test --grep @a11y",
     "check": "npm run lint && npm run typecheck && npm run build && npm run test:e2e",
-    "placeholders": "tsx scripts/generar-placeholders.ts"
+    "placeholders": "tsx scripts/generar-placeholders.ts",
+    "build:pages": "STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/alfonsini-website NEXT_PUBLIC_SITIO_URL=https://sebrp06.github.io NEXT_PUBLIC_INDEXAR=0 next build"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",

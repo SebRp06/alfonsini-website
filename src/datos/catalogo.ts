@@ -1,4 +1,5 @@
 import type { Categoria, ExistenciaTalla, PuntoDetalle, Producto, Silueta, Slug } from '../domain/tipos';
+import { recurso } from '../lib/sitio';
 import { aPorcentaje } from './lienzo';
 
 /**
@@ -108,9 +109,9 @@ export const PRODUCTOS: readonly Producto[] = SEMILLAS.map((s, i) => {
     materiales: ['Capellada: cuero (muestra)', 'Forro: cuero de cabra (muestra)', 'Suela: caucho (muestra)'],
     cuidados: ['Limpia con un paño húmedo.', 'Deja secar a la sombra, nunca al sol directo.', 'Usa crema neutra cada mes.'],
     imagenes: [
-      { src: `/img/productos/${slug}-lateral.svg`, alt: `${s.nombre}, ${tipo} ${s.color.nombre.toLowerCase()}, vista lateral`, ancho: 800, alto: 600 },
-      { src: `/img/productos/${slug}-par.svg`, alt: `${s.nombre}, el par visto en diagonal`, ancho: 800, alto: 600 },
-      { src: `/img/productos/${slug}-detalle.svg`, alt: `${s.nombre}, acercamiento a la punta y la costura`, ancho: 800, alto: 600 },
+      { src: recurso(`/img/productos/${slug}-lateral.svg`), alt: `${s.nombre}, ${tipo} ${s.color.nombre.toLowerCase()}, vista lateral`, ancho: 800, alto: 600 },
+      { src: recurso(`/img/productos/${slug}-par.svg`), alt: `${s.nombre}, el par visto en diagonal`, ancho: 800, alto: 600 },
+      { src: recurso(`/img/productos/${slug}-detalle.svg`), alt: `${s.nombre}, acercamiento a la punta y la costura`, ancho: 800, alto: 600 },
     ],
     puntos: PUNTOS[s.silueta].map(({ sx, sy, ...p }) => ({ ...p, ...aPorcentaje(sx, sy) })),
     existencias: existencias(i, s.silueta, s.agotado === true),

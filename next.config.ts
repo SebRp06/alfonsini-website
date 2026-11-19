@@ -6,6 +6,8 @@ import type { NextConfig } from 'next';
  * - STATIC_EXPORT=1: HTML estático en `out/` para la vista previa (visor) y hosting sin servidor.
  */
 const exportar = process.env.STATIC_EXPORT === '1';
+// Subruta de despliegue (GitHub Pages: /alfonsini-website). Vacía en producción con dominio propio.
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
 
 const csp = [
   "default-src 'self'",
@@ -37,6 +39,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   output: exportar ? 'export' : undefined,
+  ...(basePath ? { basePath } : {}),
   trailingSlash: exportar,
   images: {
     // Placeholders SVG locales. Con las fotos reales: AVIF/WebP y un loader de CDN (ver docs/PENDIENTES.md).

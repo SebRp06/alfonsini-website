@@ -13,12 +13,16 @@ Maqueta visual v0.1 del comercio electrónico de calzado **Alfonsini**, construi
 - **Accesibilidad**: tamaño de letra 100–150 % y tema claro/oscuro al instante, saltar al contenido, lector de pantalla, teclado, zoom.
 - **SEO**: SSG, metadatos, canónicas, sitemap, robots, JSON-LD de producto y organización.
 
+## Vista previa pública
+https://sebrp06.github.io/alfonsini-website/ — se actualiza sola en cada cambio de `main` (workflow `vista-previa`). Lleva `noindex`: es una maqueta con datos de muestra.
+
 ## Comandos
 ```bash
 npm ci
 npm run dev            # desarrollo
 npm run check          # lint + tipos + build + Playwright/axe (compuerta de calidad)
 npm run build:preview  # HTML estático en out/
+npm run build:pages    # igual, con la subruta de GitHub Pages
 ```
 
 ## Calidad (19 nov 2026)

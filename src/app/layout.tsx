@@ -19,9 +19,11 @@ export const metadata: Metadata = {
   applicationName: SITIO.nombre,
   keywords: ['calzado', 'zapatos', 'Colombia', 'tienda en línea', 'Alfonsini', 'zapatos hechos en Colombia'],
   alternates: { canonical: '/' },
-  openGraph: { type: 'website', locale: 'es_CO', siteName: SITIO.nombre, url: '/', title: 'Alfonsini · Calzado hecho en Colombia', description: SITIO.descripcion, images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Alfonsini' }] },
-  twitter: { card: 'summary_large_image', title: 'Alfonsini · Calzado hecho en Colombia', description: SITIO.descripcion, images: ['/og.jpg'] },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
+  openGraph: { type: 'website', locale: 'es_CO', siteName: SITIO.nombre, url: '/', title: 'Alfonsini · Calzado hecho en Colombia', description: SITIO.descripcion, images: [{ url: `${SITIO.url}/og.jpg`, width: 1200, height: 630, alt: 'Alfonsini' }] },
+  twitter: { card: 'summary_large_image', title: 'Alfonsini · Calzado hecho en Colombia', description: SITIO.descripcion, images: [`${SITIO.url}/og.jpg`] },
+  robots: SITIO.indexable
+    ? { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } }
+    : { index: false, follow: false },
   formatDetection: { telephone: false },
 };
 

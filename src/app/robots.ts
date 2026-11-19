@@ -5,7 +5,9 @@ export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: '*', allow: '/', disallow: ['/checkout', '/carrito'] }],
+    rules: SITIO.indexable
+      ? [{ userAgent: '*', allow: '/', disallow: ['/checkout', '/carrito'] }]
+      : [{ userAgent: '*', disallow: '/' }],
     sitemap: `${SITIO.url}/sitemap.xml`,
     host: SITIO.url,
   };
